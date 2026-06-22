@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { useState } from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet, View, useColorScheme } from 'react-native';
 import Animated, { Easing, Keyframe } from 'react-native-reanimated';
 import { scheduleOnRN } from 'react-native-worklets';
 
@@ -9,6 +9,7 @@ const DURATION = 600;
 
 export function AnimatedSplashOverlay() {
   const [visible, setVisible] = useState(true);
+  const colorScheme = useColorScheme();
 
   if (!visible) return null;
 
@@ -31,6 +32,9 @@ export function AnimatedSplashOverlay() {
     },
   });
 
+  const isDark = colorScheme === 'dark';
+  const backgroundColor = isDark ? '#000000' : '#ffffff';
+
   return (
     <Animated.View
       entering={splashKeyframe.duration(DURATION).withCallback((finished) => {
@@ -39,7 +43,7 @@ export function AnimatedSplashOverlay() {
           scheduleOnRN(setVisible, false);
         }
       })}
-      style={styles.backgroundSolidColor}
+      style={[styles.backgroundSolidColor, { backgroundColor }]}
     />
   );
 }
