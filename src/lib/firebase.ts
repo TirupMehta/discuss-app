@@ -165,7 +165,9 @@ async function dbGet(path: string): Promise<any> {
     const { get, ref } = require("firebase/database");
     return await get(ref(db, path));
   } catch (err: any) {
-    console.warn(`Real DB read failed for path ${path}, falling back to mock:`, err.message);
+    if (!err.message?.includes("Permission denied") && err.code !== "PERMISSION_DENIED") {
+      console.warn(`Real DB read failed for path ${path}, falling back to mock:`, err.message);
+    }
     const data = await mockReadDir(path);
     return mockSnapshot(data);
   }
@@ -195,7 +197,9 @@ async function dbSet(path: string, value: any): Promise<void> {
     const { set, ref } = require("firebase/database");
     await set(ref(db, path), value);
   } catch (err: any) {
-    console.warn(`Real DB write failed for path ${path}, falling back to mock:`, err.message);
+    if (!err.message?.includes("Permission denied") && err.code !== "PERMISSION_DENIED") {
+      console.warn(`Real DB write failed for path ${path}, falling back to mock:`, err.message);
+    }
     await mockWrite(path, value);
     if (path.startsWith("shared/")) {
       try {
@@ -238,7 +242,9 @@ async function dbUpdate(path: string, value: any): Promise<void> {
     const { update, ref } = require("firebase/database");
     await update(ref(db, path), value);
   } catch (err: any) {
-    console.warn(`Real DB update failed for path ${path}, falling back to mock:`, err.message);
+    if (!err.message?.includes("Permission denied") && err.code !== "PERMISSION_DENIED") {
+      console.warn(`Real DB update failed for path ${path}, falling back to mock:`, err.message);
+    }
     await mockUpdate(path, value);
     if (path.startsWith("shared/")) {
       try {
@@ -267,7 +273,9 @@ async function dbRemove(path: string): Promise<void> {
     const { remove, ref } = require("firebase/database");
     await remove(ref(db, path));
   } catch (err: any) {
-    console.warn(`Real DB remove failed for path ${path}, falling back to mock:`, err.message);
+    if (!err.message?.includes("Permission denied") && err.code !== "PERMISSION_DENIED") {
+      console.warn(`Real DB remove failed for path ${path}, falling back to mock:`, err.message);
+    }
     await mockRemove(path);
   }
 }
