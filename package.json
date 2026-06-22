@@ -4,8 +4,11 @@
   "version": "1.0.0",
   "dependencies": {
     "@expo/ui": "~56.0.18",
+    "@react-native-async-storage/async-storage": "2.2.0",
     "expo": "~56.0.12",
+    "expo-auth-session": "~56.0.14",
     "expo-constants": "~56.0.18",
+    "expo-crypto": "~56.0.4",
     "expo-device": "~56.0.4",
     "expo-font": "~56.0.7",
     "expo-glass-effect": "~56.0.4",
@@ -17,6 +20,8 @@
     "expo-symbols": "~56.0.6",
     "expo-system-ui": "~56.0.5",
     "expo-web-browser": "~56.0.5",
+    "firebase": "^12.15.0",
+    "lucide-react-native": "^1.21.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native": "0.85.3",
@@ -29,6 +34,8 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "eslint": "^9.39.4",
+    "eslint-config-expo": "~56.0.4",
     "typescript": "~6.0.3"
   },
   "scripts": {

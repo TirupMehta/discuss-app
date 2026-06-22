@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "545906329502",
+    "firebase_url": "https://discuss-tirup-in-default-rtdb.firebaseio.com",
+    "project_id": "discuss-tirup-in",
+    "storage_bucket": "discuss-tirup-in.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545906329502:android:21493f46ac51f9f850b88f",
+        "android_client_info": {
+          "package_name": "com.mehta.discuss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545906329502-33oi91lcspgr61h600nl97g1acp5fadt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCcqcqoMhHfvmHjNfQ_67CfFPvyH3-6Wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545906329502-33oi91lcspgr61h600nl97g1acp5fadt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
