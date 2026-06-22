@@ -43,8 +43,14 @@ export function AnimatedSplashOverlay() {
           scheduleOnRN(setVisible, false);
         }
       })}
-      style={[styles.backgroundSolidColor, { backgroundColor }]}
-    />
+      style={[styles.backgroundSolidColor, { backgroundColor, justifyContent: 'center', alignItems: 'center' }]}
+    >
+      <Image
+        source={require('@/assets/icon.png')}
+        style={{ width: 120, height: 120, borderRadius: 30 }}
+        contentFit="contain"
+      />
+    </Animated.View>
   );
 }
 
@@ -93,7 +99,7 @@ export function AnimatedIcon() {
 
       <Animated.View entering={keyframe.duration(DURATION)} style={styles.background} />
       <Animated.View style={styles.imageContainer} entering={logoKeyframe.duration(DURATION)}>
-        <Image style={styles.image} source={require('@/assets/images/expo-logo.png')} />
+        <Image style={{ width: 76, height: 76, borderRadius: 16 }} contentFit="contain" source={require('@/assets/icon.png')} />
       </Animated.View>
     </View>
   );

@@ -17,6 +17,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LogOut, MessageSquare, ArrowRight, Clock, ShieldAlert } from 'lucide-react-native';
 import * as WebBrowser from 'expo-web-browser';
 import * as Linking from 'expo-linking';
+import { Image } from 'expo-image';
 
 import { auth, emailToKey, dbGet, getWithFallback, setWithFallback } from '@/lib/firebase';
 
@@ -359,9 +360,11 @@ export default function HomeScreen() {
                 /* Landing Auth view */
                 <View style={[styles.card, { backgroundColor: theme.backgroundElement, borderColor: theme.backgroundSelected }]}>
                   <View style={styles.heroSection}>
-                    <View style={[styles.logoIcon, { backgroundColor: theme.text }]}>
-                      <MessageSquare size={24} color={theme.background} />
-                    </View>
+                    <Image
+                      source={require('@/assets/icon.png')}
+                      style={styles.logoImage}
+                      contentFit="contain"
+                    />
                     <ThemedText type="title" style={styles.heroTitle}>Discuss</ThemedText>
                     <ThemedText style={styles.heroSubtitle} themeColor="textSecondary">
                       Sign in with Google to start or join AI group chats.
@@ -670,17 +673,15 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.five,
     gap: Spacing.two,
   },
-  logoIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-    transform: [{ rotate: '6deg' }],
+  logoImage: {
+    width: 64,
+    height: 64,
+    borderRadius: 16,
+    marginBottom: Spacing.two,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
     elevation: 3,
   },
   heroTitle: {

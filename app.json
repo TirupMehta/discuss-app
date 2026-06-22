@@ -4,7 +4,7 @@
     "slug": "discuss-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/icon.png",
     "scheme": "discussapp",
     "userInterfaceStyle": "automatic",
     "ios": {
@@ -33,6 +33,8 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#ffffff",
+          "image": "./assets/icon.png",
+          "imageWidth": 120,
           "resizeMode": "contain",
           "dark": {
             "backgroundColor": "#000000"
